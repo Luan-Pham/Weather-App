@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  align-self: center;
+}
+.search-contain {
+  display: flex;
+  height: 20%;
+  width: 100%;
+}
