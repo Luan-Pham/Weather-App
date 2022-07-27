@@ -5,6 +5,9 @@
 h1 {
   align-self: center;
 }
+h2 {
+  font-size: 25px;
+}
 .search-contain {
   display: flex;
   height: 20%;
@@ -16,10 +19,19 @@ h1 {
   width: 100%;
   grid-row-start: 1;
   grid-row-end: 5;
+  margin: 20px;
 }
 
 .forecast-card {
   width: 20%;
   grid-row: 1/5;
   align-content: flex-start;
+  height: 500px;
+  margin: 3px;
+  padding: 15px;
+}
+
+.info {
+  text-align: center;
+  justify-self: start;
 }
