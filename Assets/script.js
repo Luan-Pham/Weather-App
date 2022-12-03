@@ -5,7 +5,6 @@ const apiKey = '84f4552f8265e604690655d0c9488cfe';
 
 function search() {
   const location = document.getElementById('searchValue').value;
-
   console.log(location);
 
   var apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}&units=imperial`;
@@ -18,7 +17,7 @@ function search() {
 }
 
 function displayWeather(data) {
-  $(dashBoard).append(`<div class="container">
+  $(dashBoard).html(`<div class="container">
   <h1 class="display-4">${data.city.name}</h1>
   <p class="lead">Temperature: ${data.list[0].main.feels_like} °F
   <br>
@@ -29,6 +28,7 @@ function displayWeather(data) {
 }
 
 function displayForecast(data) {
+  $(foreCast).empty();
   for (let i = 1; i < 6; i++) {
     $(foreCast).append(`<div class="card" style="width:20%">
     <div class="card-body">

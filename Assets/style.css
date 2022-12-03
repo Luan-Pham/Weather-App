@@ -1,15 +1,18 @@
 .topDisplay {
-  background-image: url('/Assets/sky.jpg');
-  background-position: center;
-  background-size: cover;
+  background-color: #62929e;
   color: white;
 }
 
 .card-body {
-  background-color: #839791;
+  background-color: #475657;
   color: white;
 }
 
 .bigBoy {
-  background-color: #896978;
+  background-color: #c6c5b9;
+}
+
+#dashboard {
+  background-color: #4a6d7c;
+  color: white;
 }
