@@ -1,86 +1,62 @@
-// API key = 84f4552f8265e604690655d0c9488cfe
-
-// 5 day forecast API = api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
-
-var searchBtn = document.getElementById("searchBtn");
-var Day0 = document.getElementById("0");
-var Day1 = document.getElementById("1");
-var Day2 = document.getElementById("2");
-var Day3 = document.getElementById("3");
-var Day4 = document.getElementById("4");
+const searchBtn = document.getElementById('button-addon2');
+const dashBoard = document.getElementById('dashboard');
+const foreCast = document.getElementById('forecast');
+const apiKey = '84f4552f8265e604690655d0c9488cfe';
 
 function search() {
-  var location = document.getElementById("location").value;
+  const location = document.getElementById('searchValue').value;
+
   console.log(location);
-  var apiURL =
-    "https://api.openweathermap.org/data/2.5/forecast?q=" +
-    location +
-    "&units=imperial&appid=84f4552f8265e604690655d0c9488cfe";
+
+  var apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}&units=imperial`;
+  console.log(apiURL);
   fetch(apiURL)
     .then((response) => response.json())
-    .then((data) => (console.log(data), displayWeather0(data), displayWeather1(data), displayWeather2(data), displayWeather3(data), displayWeather4(data)));
+    .then(
+      (data) => (console.log(data), displayWeather(data), displayForecast(data))
+    );
 }
 
-function displayWeather0(data) {
-  const {temp, humidity} = data.list[0].main;
-  const {main, description, icon}= data.list[0].weather[0];
-  Day0.innerHTML = "Temp:" + temp
-  Day0.append(" Humidity:" + humidity)
-  Day0.append(" Description:" + description)
-  Day0.append(" Temp:" + main)
+function displayWeather(data) {
+  $(dashBoard).append(`<div class="container">
+  <h1 class="display-4">${data.city.name}</h1>
+  <p class="lead">Temperature: ${data.list[0].main.feels_like} °F
+  <br>
+  Wind: ${data.list[0].wind.speed} MPH
+  <br>
+  Humidity: ${data.list[0].main.humidity} %</p>
+</div>`);
 }
 
-function displayWeather1(data) {
-  const {temp, humidity} = data.list[1].main;
-  const {main, description, icon}= data.list[1].weather[0];
-  Day1.innerHTML = "Temp:" + temp
-  Day1.append(" Humidity:" + humidity)
-  Day1.append(" Description:" + description)
-  Day1.append(" Temp:" + main)
+function displayForecast(data) {
+  for (let i = 1; i < 6; i++) {
+    $(foreCast).append(`<div class="card" style="width:20%">
+    <div class="card-body">
+      <h5 class="card-title"> Day ${i}</h5>
+      <h6 class="card-subtitle mb-2">${data.list[i].weather[0].description}</h6>
+      <p class="card-text">
+      Temperature: ${data.list[i].main.feels_like} °F
+      </p>
+      <p class="card-text">
+      Wind: ${data.list[i].wind.speed} MPH
+      </p>
+      <p class="card-text">
+      Humidity: ${data.list[i].main.humidity} %
+      </p>
+    </div>`);
+  }
 }
-function displayWeather2(data) {
-  const {temp, humidity} = data.list[2].main;
-  const {main, description, icon}= data.list[2].weather[0];
-  Day2.innerHTML = "Temp:" + temp
-  Day2.append(" Humidity:" + humidity)
-  Day2.append(" Description:" + description)
-  Day2.append(" Temp:" + main)
-}
-function displayWeather3(data) {
-  const {temp, humidity} = data.list[3].main;
-  const {main, description, icon}= data.list[3].weather[0];
-  Day3.innerHTML = "Temp:" + temp
-  Day3.append(" Humidity:" + humidity)
-  Day3.append(" Description:" + description)
-  Day3.append(" Temp:" + main)
-}
-function displayWeather4(data) {
-  const {temp, humidity} = data.list[4].main;
-  const {main, description, icon}= data.list[4].weather[0];
-  Day4.innerHTML = "Temp:" + temp
-  Day4.append(" Humidity:" + humidity)
-  Day4.append(" Description:" + description)
-  Day4.append(" Temp:" + main)
-}
-// function displayWeather(data) {
-//   const { temp, humidity } = data.list[0].main;
-//   const { main, description, icon } = data.list[0].weather[0];
 
-//   console.log(temp, humidity);
-//   console.log(main, description, icon);
+`<div class="card" style="width: 18rem">
+<div class="card-body">
+  <h5 class="card-title">Card title</h5>
+  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+  <p class="card-text">
+    Some quick example text to build on the card title and make
+    up the bulk of the card's content.
+  </p>
+  <a href="#" class="card-link">Card link</a>
+  <a href="#" class="card-link">Another link</a>
+</div>`;
 
-//   $(".info").each(function () {
-//     var currentDay = $(this).attr("id");
-//     console.log(currentDay);
-//     const { temp, humidity } = data.list[currentDay].main;
-//     const { main, description, icon } =
-//       data.list[currentDay].weather[currentDay];
-//     ($(this).textContent = temp), humidity, main, description, icon;
-//   });
-// const { name } = data;
-// const { description } = data.list[0].weather;
-// console.log(description);
-// console.log(name);
-// }
-
-searchBtn.addEventListener("click", search);
+searchBtn.addEventListener('click', search);

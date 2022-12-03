@@ -15,24 +15,25 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/Assets/style.css"/>
 
     <title>Weather Forecast!</title>
   </head>
-  <div class="jumbotron jumbotron-fluid">
+  <div class="jumbotron bigBoy">
     <div class="container">
       <h1 class="display-4">Weather Forecast</h1>
     </div>
   </div>
-  <body>
+  <body class="topDisplay">
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-4">
-          <h1>Weather Search</h1>
+          <h1>Search Your City!</h1>
           <div class="input-group mb-3">
             <input
               type="text"
               class="form-control"
-              placeholder="Walnut Creek, CA"
+              placeholder="Walnut Creek"
               aria-label="Recipient's username"
               aria-describedby="button-addon2"
               id="searchValue"
@@ -44,28 +45,16 @@
                 value="submit"
                 id="button-addon2"
               >
-                Search a city!
+                Search
               </button>
             </div>
           </div>
         </div>
         <div class="col-8">
-          <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-              <h1 class="display-4">Fluid jumbotron</h1>
-              <p class="lead">
-                This is a modified jumbotron that occupies the entire horizontal
-                space of its parent.
-              </p>
-            </div>
-          </div>
+          <div class="jumbotron jumbotron-fluid" id="dashboard"></div>
           <div class="container">
-            <div class="row">
-              <div class="col">1 of 5</div>
-              <div class="col">2 of 5</div>
-              <div class="col">3 of 5</div>
-              <div class="col">4 of 5</div>
-              <div class="col">5 of 5</div>
+            <div class="row" id="forecast">
+              </div>
             </div>
           </div>
         </div>
@@ -74,7 +63,7 @@
     </div>
 
     <!-- Optional JavaScript -->
-    <script src="./Assets//script2.js"></script>
+    <script src="./Assets//script.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
