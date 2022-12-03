@@ -9,6 +9,7 @@ The users search input is saved to local storage which will generate a button th
 
 The application is deployed using github pages. Bootstrap and jQuery were used for the styling and functionality of the application.
 
+<a href="https://luan-pham.github.io/Weather-App/"> Link to App </a>
 ## Screenshots
 
 <img img width='600' src="assets/weather-sample.png">
