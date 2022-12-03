@@ -12,7 +12,7 @@ The application is deployed using github pages. Bootstrap and jQuery were used f
 <a href="https://luan-pham.github.io/Weather-App/"> Link to App </a>
 ## Screenshots
 
-<img img width='600' src="assets/weather-sample.png">
+<img img width='600' src="./Assets/weather-sample.png">
 
 ## Contact
 
