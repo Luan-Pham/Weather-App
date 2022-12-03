@@ -2,10 +2,12 @@ const searchBtn = document.getElementById('button-addon2');
 const dashBoard = document.getElementById('dashboard');
 const foreCast = document.getElementById('forecast');
 const apiKey = '84f4552f8265e604690655d0c9488cfe';
+const btnContainer = document.getElementById('previousSearch');
 
 function search() {
   const location = document.getElementById('searchValue').value;
   console.log(location);
+  localStorage.setItem(location, location);
 
   var apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}&units=imperial`;
   console.log(apiURL);
@@ -45,6 +47,17 @@ function displayForecast(data) {
       </p>
     </div>`);
   }
+}
+
+function oldSearch() {
+  $(btnContainer).append(`<button
+  class="btn btn-primary"
+  type="submit"
+  value="submit"
+  id="button-addon2"
+>
+  Search
+</button>`);
 }
 
 `<div class="card" style="width: 18rem">
